@@ -233,12 +233,14 @@
           offset
         >
           <template #item="{ item, props }">
-            <div v-bind="props" class="px-2 py-2">
-              <v-list-item-title> {{ item.raw.name }} </v-list-item-title>
-              <v-list-item-subtitle>
-                {{ item.raw.progress }}% {{ $t("language-dialog.translated") }}
-              </v-list-item-subtitle>
-            </div>
+            <v-list-item v-bind="props" class="px-2 py-2" link>
+              <v-list-item-content>
+                <v-list-item-title> {{ item.raw.name }} </v-list-item-title>
+                <v-list-item-subtitle>
+                  {{ item.raw.progress }}% {{ $t("language-dialog.translated") }}
+                </v-list-item-subtitle>
+              </v-list-item-content>
+            </v-list-item>
           </template>
         </v-autocomplete>
 
