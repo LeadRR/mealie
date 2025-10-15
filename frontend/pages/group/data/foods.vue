@@ -51,17 +51,20 @@
           v-model="locale"
           :items="locales"
           item-title="name"
+          item-value="value"
           :label="$t('data-pages.select-language')"
           class="my-3"
           hide-details
           variant="outlined"
           offset
         >
-          <template #item="{ item }">
-            <v-list-item-title> {{ item.raw.name }} </v-list-item-title>
-            <v-list-item-subtitle>
-              {{ item.raw.progress }}% {{ $t("language-dialog.translated") }}
-            </v-list-item-subtitle>
+          <template #item="{ item, props }">
+            <div v-bind="props" class="px-2 py-2">
+              <v-list-item-title> {{ item.raw.name }} </v-list-item-title>
+              <v-list-item-subtitle>
+                {{ item.raw.progress }}% {{ $t("language-dialog.translated") }}
+              </v-list-item-subtitle>
+            </div>
           </template>
         </v-autocomplete>
 
